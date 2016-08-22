@@ -26,7 +26,6 @@
           <argument>
             <kind>1</kind>
             <string>i= 0;
-new_game_mouse_in = false;
 </string>
           </argument>
         </arguments>
@@ -52,22 +51,6 @@ new_game_mouse_in = false;
             <string>if (keyboard_check_released(vk_escape)){
     game_end();
 }
-i++;
-
-if (i%3==0){
-    effect_create_above(ef_spark, random(1366), random(768), random(6), c_white);
-}
-
-if (mouse_x&gt;408 &amp;&amp; mouse_y&gt;168 &amp;&amp; mouse_y &lt; 220 &amp;&amp; mouse_x &lt; 940){
-    new_game_mouse_in = true;
-    
-    if (mouse_check_button_released(mb_left)){
-        room_goto(main);
-    }
-    
-}else {
-    new_game_mouse_in = false;
-}
 </string>
           </argument>
         </arguments>
@@ -90,13 +73,7 @@ if (mouse_x&gt;408 &amp;&amp; mouse_y&gt;168 &amp;&amp; mouse_y &lt; 220 &amp;&a
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (!new_game_mouse_in){
-    draw_sprite(spr_new_game_out, 0, 0, 0);
-}
-else {
-    draw_sprite(spr_new_game_in, 0, 0, 0);
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>

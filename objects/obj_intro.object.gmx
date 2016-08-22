@@ -95,7 +95,6 @@ if (alpha_2&lt;0){
           <argument>
             <kind>1</kind>
             <string>draw_sprite_ext(spr_intro_1, 0, 200, 200, 1, 1, 0, c_white, alpha_1);
-draw_sprite_ext(spr_intro_2, 0, 0, 0, 1, 1, 0, c_white, alpha_2);
 </string>
           </argument>
         </arguments>
