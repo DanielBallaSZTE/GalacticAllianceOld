@@ -26,6 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>i= 0;
+
+ng_in = false;
+q_in = false;
 </string>
           </argument>
         </arguments>
@@ -51,6 +54,33 @@
             <string>if (keyboard_check_released(vk_escape)){
     game_end();
 }
+
+
+if ( mouse_x&gt; (room_width/2 - 364/2) &amp;&amp; mouse_x &lt; (room_width/2 + 364/2) &amp;&amp; mouse_y &gt; (200-46/2) &amp;&amp; mouse_y &lt; (200+46/2)){
+    ng_in = true;
+}else {
+    ng_in = false;
+}
+
+if (mouse_x &gt; (room_width/2 - 162/2) &amp;&amp; mouse_x &lt; (room_width/2 + 162/2) &amp;&amp; mouse_y &gt; (600-48/2) &amp;&amp; mouse_y &lt; (600+48/2)){
+    q_in = true;
+}else {
+    q_in = false;
+}
+
+
+if (ng_in){
+    if (mouse_check_button_released(mb_left)){
+        room_goto(main);
+    }
+}
+
+
+if (q_in){
+    if (mouse_check_button_released(mb_left)){
+        game_end();
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -73,7 +103,19 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>if (ng_in){
+    draw_sprite(spr_new_game, 1, room_width/2, 200);
+}else{
+    draw_sprite(spr_new_game, 0, room_width/2, 200);
+}
+
+
+if (q_in){
+    draw_sprite(spr_quit, 1, room_width/2, 600);
+}else{
+    draw_sprite(spr_quit, 0, room_width/2, 600);
+}
+</string>
           </argument>
         </arguments>
       </action>
