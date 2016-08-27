@@ -235,7 +235,9 @@ if(next_wave_timer_draw){
     draw_set_font(f_main);
     draw_set_color(c_white);
     draw_text(room_width/2, 70, "Time left till next wave: ");
-    draw_text(room_width/2, 86, string(next_wave_timer/30));
+    if (next_wave_timer/30&gt;0){
+        draw_text(room_width/2, 86, string(next_wave_timer/30));
+    }
 }
 </string>
           </argument>
