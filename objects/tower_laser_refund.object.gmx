@@ -110,7 +110,7 @@ if (point_distance(x, y, mouse_x, mouse_y)&lt;17){
 draw_set_font(f_basic);
 draw_set_color(c_white);
 
-draw_text(x-22, y-50, "Refund# +100");
+draw_text(x, y-50, "Refund#+100");
 </string>
           </argument>
         </arguments>

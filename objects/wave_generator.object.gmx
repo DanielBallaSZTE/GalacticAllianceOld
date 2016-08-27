@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>-50</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -216,19 +216,25 @@ not_spawning = false;
             <string>if (wave_message){
     draw_set_font(f_waves);
     draw_set_color(c_white);
-    draw_text(room_width*0.5 - 90, room_height*0.4, "Wave " + string(wave_number));
+    draw_text(room_width*0.5, room_height*0.4, "Wave " + string(wave_number));
 }
 
 if (wave_cleared_draw){
-    draw_set_font(f_waves);
-    draw_set_color(c_white);
-    draw_text(room_width*0.5 - 150, room_height*0.4, "Wave cleared!");
+    /*if(!instance_exists(obj_waveclear)){
+        instance_create(room_width/2, room_height*0.4, obj_waveclear)
+    }
+    */
+    if (next_wave_timer&gt;=421){
+        draw_sprite(spr_waveclear, (450 - next_wave_timer), room_width/2,room_height*0.4);
+    }else {
+        draw_sprite(spr_waveclear, 29, room_width/2, room_height*0.4);
+    }
 }
 
 if(next_wave_timer_draw){
     draw_set_font(f_main);
     draw_set_color(c_white);
-    draw_text(room_width/2 - 110, 70, "Time left till next wave: ");
+    draw_text(room_width/2, 70, "Time left till next wave: ");
     draw_text(room_width/2, 86, string(next_wave_timer/30));
 }
 </string>

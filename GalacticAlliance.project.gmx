@@ -7,6 +7,7 @@
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
+    <sprite>sprites\spr_waveclear</sprite>
     <sprite>sprites\spr_tower_recycle</sprite>
     <sprite>sprites\towers</sprite>
     <sprites name="tower_basic">
@@ -47,14 +48,14 @@
       <sprite>sprites\spr_tower_laser_circle</sprite>
     </sprites>
     <sprites name="menu">
-      <sprite>sprites\spr_intro_2</sprite>
       <sprite>sprites\spr_intro_1</sprite>
-      <sprite>sprites\spr_new_game_in</sprite>
-      <sprite>sprites\spr_new_game_out</sprite>
+      <sprite>sprites\spr_quit</sprite>
+      <sprite>sprites\spr_new_game</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\main_bg</background>
+    <background>background\menu_bg</background>
   </backgrounds>
   <paths name="paths"/>
   <scripts name="scripts">
@@ -89,6 +90,7 @@
   </scripts>
   <fonts name="fonts">
     <font>fonts\f_main</font>
+    <font>fonts\f_notifications</font>
     <font>fonts\f_basic</font>
     <font>fonts\f_waves</font>
   </fonts>
@@ -134,6 +136,7 @@
       <object>objects\obj_menu</object>
       <object>objects\obj_intro</object>
     </objects>
+    <object>objects\obj_waveclear</object>
     <object>objects\wave_generator</object>
   </objects>
   <rooms name="rooms">

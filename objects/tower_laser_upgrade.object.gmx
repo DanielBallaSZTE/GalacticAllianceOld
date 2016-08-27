@@ -35,7 +35,7 @@ inst_circle = instance_place(x-92, y, tower_laser_circle);
 
 //show_message("Tower basic circle ID " + string(inst_circle));
 
-draw_level = false;
+draw_cost = false;
 
 image_speed = 0;
 
@@ -110,7 +110,7 @@ if (has_money){
 if (point_distance(x, y, mouse_x, mouse_y)&lt;17){
         //current level
     
-    draw_level = true;
+    draw_cost = true;
     if (has_money){
         //DO UPGRADE
         if (inst_tower.level&lt;3){ //level cap
@@ -126,7 +126,7 @@ if (point_distance(x, y, mouse_x, mouse_y)&lt;17){
         }
     }
 } else {
-        draw_level = false;
+        draw_cost = false;
 }
 
 
@@ -157,13 +157,26 @@ if (point_distance(x, y, mouse_x, mouse_y)&lt;17){
 draw_set_font(f_basic);
 draw_set_color(c_white);
 
-draw_text(x-35, y-48, "UPGRADE");
 
-if (draw_level){
-    if (inst_tower.level == 3) {
-        draw_text(x-30, y+15, "Level: " + string(inst_tower.level) + "#(MAX)");
-    }else {
-        draw_text(x-30, y+15, "Level: " + string(inst_tower.level));
+draw_text(x, y-48, "Upgrade");
+
+if (instance_exists(inst_tower)){
+
+if (inst_tower.level == 3) {
+    draw_text(x-92, y+120, "Level: " + string(inst_tower.level) + "#(MAX)");
+}else {
+    draw_text(x-92, y+120, "Level: " + string(inst_tower.level));
+}
+
+}
+
+if (draw_cost){
+    if (inst_tower.level == 1){
+        draw_text(x, y+30, "Cost: 150");
+    }else if (inst_tower.level == 2){
+        draw_text(x, y+30, "Cost: 200");
+    }else if (inst_tower.level == 3){
+        draw_text(x, y+30, "Cost: -");
     }
 }
 </string>
