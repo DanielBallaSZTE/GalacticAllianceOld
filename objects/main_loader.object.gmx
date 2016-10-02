@@ -133,7 +133,6 @@ file_text_write_real(write_save, global.experience);
 file_text_write_real(write_save, global.level);
 file_text_write_real(write_save, global.xp_needed);
 file_text_write_real(write_save, val1);
-file_text_close(write_save);
 
 var j;
 for (j = 0; j&lt; instance_number(tower_basic); j++){
@@ -141,9 +140,15 @@ for (j = 0; j&lt; instance_number(tower_basic); j++){
 }
 file_text_write_real(write_save, j);
 var k;
+file_text_write_real(write_save, j);
 for (k=0; k&lt;j; k++){
-    file_text_write_real(write_save, tower_save[j]);
+    file_text_write_real(write_save, tower_save[k].x);
+    file_text_write_real(write_save, tower_save[k].y);
+    file_text_write_real(write_save, tower_save[k].level);
 }
+
+
+file_text_close(write_save);
 </string>
           </argument>
         </arguments>
