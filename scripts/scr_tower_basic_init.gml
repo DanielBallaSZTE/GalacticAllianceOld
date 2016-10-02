@@ -1,5 +1,7 @@
 sprite_index = spr_tower_basic;
 
+name = "basic";
+
 inst_id = instance_position(x, y, tower_basic);
 has_target = false;
 target = noone;

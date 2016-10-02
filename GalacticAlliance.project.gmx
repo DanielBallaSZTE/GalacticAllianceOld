@@ -52,6 +52,8 @@
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_new_game</sprite>
     </sprites>
+    <sprite>sprites\spr_next_wave</sprite>
+    <sprite>sprites\xp_bar</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\main_bg</background>
@@ -93,6 +95,7 @@
     <font>fonts\f_notifications</font>
     <font>fonts\f_basic</font>
     <font>fonts\f_waves</font>
+    <font>fonts\font7</font>
   </fonts>
   <objects name="objects">
     <object>objects\main_loader</object>
@@ -138,6 +141,8 @@
     </objects>
     <object>objects\obj_waveclear</object>
     <object>objects\wave_generator</object>
+    <object>objects\shop_gui</object>
+    <object>objects\obj_next_wave</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\main</room>

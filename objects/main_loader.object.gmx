@@ -25,10 +25,43 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>global.money = 45;
+            <string>if(!file_exists("save_test.txt")){
+
+
+global.money = 45;
 global.placing_tower = false;
 global.lives = 10;
+global.experience = 0;
+global.level = 1;
 
+global.xp_needed = 50;
+
+val1 = global.xp_needed;
+}else {
+//main_loader
+    load_save = file_text_open_read("save_test.txt");
+    global.money = file_text_read_real(load_save);
+    global.placing_tower = false;
+    global.lives = file_text_read_real(load_save);
+    global.experience = file_text_read_real(load_save);
+    global.level = file_text_read_real(load_save);
+    global.xp_needed = file_text_read_real(load_save);
+    val1 = file_text_read_real(load_save);
+//waves
+    wave_generator.wave_cleared = false;
+    wave_generator.wave_cleared_draw = false;
+    wave_generator.next_wave_timer = 450;
+    wave_generator.wave_number = file_text_read_real(load_save);
+    wave_generator.wave_spawn_next = false;
+    wave_generator.not_spawning = false;
+    wave_generator.wave_message = false;
+    wave_generator.timer = 0;
+    
+    
+//close
+    file_text_close(load_save);
+    
+}
 </string>
           </argument>
         </arguments>
@@ -61,6 +94,56 @@ if (global.lives&lt;=0){
     
     game_end();
 }
+
+global.experience++;
+
+if (global.experience &gt;= global.xp_needed){
+    global.xp_needed *= 1.5;
+    global.level++;
+    val1 = global.xp_needed - global.experience;
+}
+
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>write_save = file_text_open_write("save_test.txt");
+file_text_write_real(write_save, global.money);
+file_text_write_real(write_save, global.lives);
+file_text_write_real(write_save, global.experience);
+file_text_write_real(write_save, global.level);
+file_text_write_real(write_save, global.xp_needed);
+file_text_write_real(write_save, val1);
+file_text_close(write_save);
+
+var j;
+for (j = 0; j&lt; instance_number(tower_basic); j++){
+    tower_save[j] = instance_find(tower_basic, j);
+}
+file_text_write_real(write_save, j);
+var k;
+for (k=0; k&lt;j; k++){
+    file_text_write_real(write_save, tower_save[j]);
+}
 </string>
           </argument>
         </arguments>
@@ -88,6 +171,10 @@ draw_set_color(c_white);
 draw_text(210, 20.5, string(global.money));
 draw_text(210, 50, "Lives: " + string(global.lives));
 draw_set_halign(fa_center);
+draw_sprite_stretched(xp_bar, 0, 1112, 60, ((global.xp_needed - global.experience)/val1) *250 , 10);
+draw_text(1130, 80, string(round(global.experience)) + "/" + string(round(global.xp_needed)));
+
+draw_text(1130, 100, string(val1));
 </string>
           </argument>
         </arguments>

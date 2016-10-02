@@ -25,7 +25,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>timer = 0;
+            <string>if (!file_exists("save_test.txt")){
+timer = 0;
 
 wave_cleared = false;
 
@@ -37,9 +38,13 @@ wave_number = 1;
 
 next_wave_timer_draw = false;
 
-wave_spawn_next = true;
+wave_spawn_next = false;
 
 not_spawning = false;
+
+wave_message = false;
+}
+instance_create(0, 0, shop_gui);
 </string>
           </argument>
         </arguments>
@@ -174,7 +179,7 @@ not_spawning = false;
     }
     
 }else if (wave_cleared){
-    if(next_wave_timer&gt;=0){
+    /*if(next_wave_timer&gt;=0){
         if (next_wave_timer&gt;=360){
             wave_cleared_draw = true;
         }else {
@@ -188,6 +193,10 @@ not_spawning = false;
         wave_spawn_next = true;
         wave_cleared = false;
         not_spawning = false;
+    }
+}*/
+    if(!instance_exists(shop_gui)){
+        instance_create(0, 0, shop_gui);
     }
 }
 
