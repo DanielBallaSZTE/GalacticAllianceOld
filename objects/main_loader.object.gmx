@@ -172,6 +172,7 @@ if (global.experience &gt;= global.xp_needed){
         <arguments>
           <argument>
             <kind>1</kind>
+<<<<<<< HEAD
             <string>//main loader
     write_save = file_text_open_write("save_test.txt");
     file_text_write_real(write_save, global.money);
@@ -225,6 +226,31 @@ if (global.experience &gt;= global.xp_needed){
     file_text_write_real(write_save, global.xp_multiplier_level);  
 //close
     file_text_close(write_save);
+=======
+            <string>write_save = file_text_open_write("save_test.txt");
+file_text_write_real(write_save, global.money);
+file_text_write_real(write_save, global.lives);
+file_text_write_real(write_save, global.experience);
+file_text_write_real(write_save, global.level);
+file_text_write_real(write_save, global.xp_needed);
+file_text_write_real(write_save, val1);
+
+var j;
+for (j = 0; j&lt; instance_number(tower_basic); j++){
+    tower_save[j] = instance_find(tower_basic, j);
+}
+file_text_write_real(write_save, j);
+var k;
+file_text_write_real(write_save, j);
+for (k=0; k&lt;j; k++){
+    file_text_write_real(write_save, tower_save[k].x);
+    file_text_write_real(write_save, tower_save[k].y);
+    file_text_write_real(write_save, tower_save[k].level);
+}
+
+
+file_text_close(write_save);
+>>>>>>> origin/master
 </string>
           </argument>
         </arguments>
