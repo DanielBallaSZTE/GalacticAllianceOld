@@ -59,10 +59,15 @@ image_index = 0;
         with(shop_gui){
             instance_destroy();
         }
+        global.shop_active = false;
         instance_destroy();
 }
 }else {
     image_index = 0;
+}
+
+if (!global.shop_active){
+    instance_destroy();
 }
 </string>
           </argument>

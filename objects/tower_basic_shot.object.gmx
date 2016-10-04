@@ -82,7 +82,7 @@ target = tower_id.target;
         }else{
             target.hp -= 10;
         }
-        global.money += 1;
+        global.money += 1*global.money_multiplier;
         instance_destroy();
     }
 }

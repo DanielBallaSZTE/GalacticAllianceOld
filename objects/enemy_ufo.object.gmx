@@ -92,27 +92,16 @@ if (movement_multiplier!=1){
 }
 
 if (hp&lt;=0){
-    global.money += 5;
+    global.money += 5*global.money_multiplier;
     instance_create(x,y,explosion);
+    global.experience += 15*global.xp_multiplier;
     instance_destroy();
-    
 }
 
 if (x&lt;0){
     global.lives -= 1;
     instance_destroy();
 }
-
-/*target_tower = instance_nearest(x,y, tower_basic);
-
-if (instance_exists(target_tower)){
-    if (distance_to_point(target_tower.x, target_tower.y)&lt;=100){
-        can_be_target = true;
-    }else {
-        can_be_target = false;
-    }
-}
-*/
 </string>
           </argument>
         </arguments>

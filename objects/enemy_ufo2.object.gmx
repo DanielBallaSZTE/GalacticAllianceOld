@@ -92,7 +92,8 @@ if (movement_multiplier!=1){
 }
 
 if (hp&lt;=0){
-    global.money += 6;
+    global.money += 6*global.money_multiplier;
+    global.experience += 25*global.xp_multiplier;
     instance_create(x,y,explosion);
     instance_destroy();
     

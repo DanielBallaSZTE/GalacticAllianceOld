@@ -59,7 +59,7 @@ if (ids!=0){
         target = ds_list_find_value(ids, i);
         while (i<ds_list_size(ids)){
             temp_id = ds_list_find_value(ids, i);
-            if ((point_distance(temp_id.x, temp_id.y, x, y) <= 100) && (temp_id.x<target.x)){
+            if ((point_distance(temp_id.x, temp_id.y, x, y) <= 150) && (temp_id.x<target.x)){
                 target = temp_id;
             }
             i++;
@@ -71,7 +71,7 @@ if (ids!=0){
 
 if (instance_exists(target)){
     //if (point_distance(target.x, target.y, x, y)>100 || target.hp<=0){  
-    if (distance_to_point(target.x, target.y)>100 || target.hp<=0){
+    if (distance_to_point(target.x, target.y)>150 || target.hp<=0){
         target = noone;
     }
     

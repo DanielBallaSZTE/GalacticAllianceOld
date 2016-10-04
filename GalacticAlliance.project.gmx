@@ -51,9 +51,11 @@
       <sprite>sprites\spr_intro_1</sprite>
       <sprite>sprites\spr_quit</sprite>
       <sprite>sprites\spr_new_game</sprite>
+      <sprite>sprites\shop_bg</sprite>
+      <sprite>sprites\spr_next_wave</sprite>
     </sprites>
-    <sprite>sprites\spr_next_wave</sprite>
     <sprite>sprites\xp_bar</sprite>
+    <sprite>sprites\xp_mult_TEST</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\main_bg</background>
@@ -95,10 +97,8 @@
     <font>fonts\f_notifications</font>
     <font>fonts\f_basic</font>
     <font>fonts\f_waves</font>
-    <font>fonts\font7</font>
   </fonts>
   <objects name="objects">
-    <object>objects\main_loader</object>
     <objects name="towers">
       <objects name="tower_basic">
         <object>objects\tower_basic_shot</object>
@@ -129,24 +129,28 @@
         <object>objects\tower_laser_refund</object>
       </objects>
     </objects>
-    <object>objects\explosion</object>
-    <object>objects\explosion_boss</object>
-    <object>objects\enemy_ufo</object>
-    <object>objects\enemy_ufo3</object>
-    <object>objects\enemy_boss1</object>
-    <object>objects\enemy_ufo2</object>
-    <objects name="menu">
-      <object>objects\obj_menu</object>
-      <object>objects\obj_intro</object>
+    <objects name="enemies">
+      <object>objects\enemy_ufo</object>
+      <object>objects\enemy_ufo3</object>
+      <object>objects\enemy_ufo2</object>
+      <object>objects\enemy_boss1</object>
+      <object>objects\explosion_boss</object>
+      <object>objects\explosion</object>
     </objects>
-    <object>objects\obj_waveclear</object>
-    <object>objects\wave_generator</object>
-    <object>objects\shop_gui</object>
-    <object>objects\obj_next_wave</object>
+    <objects name="menu">
+      <object>objects\obj_waveclear</object>
+      <object>objects\shop_gui</object>
+      <object>objects\obj_next_wave</object>
+      <object>objects\obj_money_multiplier</object>
+      <object>objects\obj_xp_multiplier</object>
+    </objects>
+    <objects name="control">
+      <object>objects\main_loader</object>
+      <object>objects\wave_generator</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\main</room>
-    <room>rooms\menu</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
