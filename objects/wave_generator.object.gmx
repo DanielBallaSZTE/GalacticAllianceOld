@@ -44,7 +44,14 @@ not_spawning = false;
 
 wave_message = false;
 }
-instance_create(0, 0, shop_gui);
+if (!instance_exists(shop_gui)){
+    instance_create(0, 0, shop_gui);
+}
+
+
+wave_failed = false;
+wave_failed_draw = false;
+wave_failed_timer = 0;
 </string>
           </argument>
         </arguments>
@@ -69,6 +76,16 @@ instance_create(0, 0, shop_gui);
             <kind>1</kind>
             <string>if (wave_spawn_next){
     timer++;
+    
+    if (global.lives&lt;=0){
+        wave_cleared = true;
+        wave_spawn_next = false;
+        wave_failed = true;
+        with(enemy_ufo){
+            instance_destroy();
+        }
+    }
+    
     if (timer&lt;=90){
         wave_message = true;
     }else {
@@ -171,7 +188,7 @@ instance_create(0, 0, shop_gui);
         }
     }
     
-    if (not_spawning &amp;&amp; !instance_exists(enemy_ufo)){
+    if (not_spawning &amp;&amp; !instance_exists(enemy_ufo) &amp;&amp; global.lives &gt; 0){
         wave_number++;
         next_wave_timer = 450;
         wave_cleared = true;
@@ -200,6 +217,17 @@ instance_create(0, 0, shop_gui);
     }
 }
 
+if (wave_failed){
+    wave_failed_timer++;
+    if (wave_failed_timer&lt;=90){
+        wave_failed_draw = true;
+    }else {
+        global.fails++;
+        wave_failed = false;
+        wave_failed_draw = false;
+        wave_failed_timer = 0;
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -240,6 +268,11 @@ if (wave_cleared_draw){
     }
 }
 
+if (wave_failed_draw){
+    draw_set_font(f_waves);
+    draw_set_color(c_white);
+    draw_text(room_width*0.5, room_height*0.4, "Wave failed");
+}
 /*if(next_wave_timer_draw){
     draw_set_font(f_main);
     draw_set_color(c_white);

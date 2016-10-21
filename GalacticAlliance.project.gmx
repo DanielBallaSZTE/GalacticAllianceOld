@@ -55,6 +55,7 @@
       <sprite>sprites\spr_next_wave</sprite>
       <sprite>sprites\spr_settings</sprite>
       <sprite>sprites\spr_settings_menu</sprite>
+      <sprite>sprites\spr_lives_help</sprite>
     </sprites>
     <sprite>sprites\xp_bar</sprite>
     <sprite>sprites\xp_mult_TEST</sprite>
@@ -151,6 +152,7 @@
       <object>objects\obj_settings</object>
       <object>objects\wave_generator</object>
       <object>objects\obj_settings_menu</object>
+      <object>objects\obj_skillpoints</object>
     </objects>
   </objects>
   <rooms name="rooms">

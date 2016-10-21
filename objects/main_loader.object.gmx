@@ -30,7 +30,7 @@
 
 global.money = 45;
 global.placing_tower = false;
-global.lives = 10;
+global.lives = 3;
 global.experience = 0;
 global.level = 1;
 global.xp_multiplier = 1;
@@ -39,8 +39,12 @@ global.xp_needed = 50;
 global.skillpoints = 0;
 global.money_multiplier_level = 0;
 global.xp_multiplier_level = 0;
+global.fails = 0;
 
 val1 = global.xp_needed;
+
+global.damage_bonus_level = 0;
+global.speed_bonus_level = 0;
 
 }else {
 //main_loader
@@ -62,6 +66,21 @@ val1 = global.xp_needed;
     wave_generator.not_spawning = false;
     wave_generator.wave_message = false;
     wave_generator.timer = 0;
+
+    
+    
+//multipliers
+    global.money_multiplier = file_text_read_real(load_save);
+    global.money_multiplier_level = file_text_read_real(load_save);
+    global.xp_multiplier = file_text_read_real(load_save);
+    global.xp_multiplier_level = file_text_read_real(load_save);
+
+//skillpoints
+    global.damage_bonus_level = file_text_read_real(load_save);
+    global.speed_bonus_level = file_text_read_real(load_save);
+    global.damage_bonus = global.damage_bonus_level*0.5;
+    global.speed_bonus = global.speed_bonus_level*0.5;
+
     
 //towers
     //basic
@@ -93,16 +112,16 @@ val1 = global.xp_needed;
             temp_id = instance_create(temp_x, temp_y, tower_laser);
             temp_id.level = temp_level;
         }
-//multipliers
-    global.money_multiplier = file_text_read_real(load_save);
-    global.money_multiplier_level = file_text_read_real(load_save);
-    global.xp_multiplier = file_text_read_real(load_save);
-    global.xp_multiplier_level = file_text_read_real(load_save);
-
+//scores
+    global.fails = file_text_read_real(load_save);
+    
 //close
     file_text_close(load_save);
     
 }
+
+draw_lives_help = false;
+
 if (!instance_exists(shop_gui)){
     instance_create(0, 0, shop_gui);
 }
@@ -134,11 +153,6 @@ if (!instance_exists(shop_gui)){
     global.money += 5000;
 }
 
-if (global.lives&lt;=0){
-    show_message ("Game Over");
-    
-    game_end();
-}
 
 if (global.experience &gt;= global.xp_needed){
     if (global.level == 1){
@@ -154,6 +168,11 @@ if (global.experience &gt;= global.xp_needed){
     }
 }
 
+if (point_distance(1050, 714, mouse_x, mouse_y)&lt;=24){
+    draw_lives_help = true;
+}else {
+    draw_lives_help = false;
+}
 </string>
           </argument>
         </arguments>
@@ -226,7 +245,17 @@ if (global.experience &gt;= global.xp_needed){
     file_text_write_real(write_save, global.money_multiplier);
     file_text_write_real(write_save, global.money_multiplier_level);
     file_text_write_real(write_save, global.xp_multiplier);      
-    file_text_write_real(write_save, global.xp_multiplier_level);  
+    file_text_write_real(write_save, global.xp_multiplier_level); 
+    
+//skillpoints
+
+    file_text_write_real(write_save, global.damage_bonus_level);
+    file_text_write_real(write_save, global.speed_bonus_level);
+     
+//scores
+    
+    file_text_write_real(write_save, global.fails);
+    
 //close
     file_text_close(write_save);
 </string>
@@ -254,15 +283,21 @@ if (global.experience &gt;= global.xp_needed){
             <string>draw_set_font(f_main);
 draw_set_color(c_white);
 draw_text(210, 20.5, string(round(global.money)));
-draw_text(210, 50, "Lives: " + string(global.lives));
 draw_set_halign(fa_center);
 draw_sprite_stretched(xp_bar, 0, room_width/2-250, room_height*0.1, ((((global.xp_needed - global.experience)/val1) *500)-500)*(-1) , 10);
 draw_text(room_width/2, room_height*0.1-30, "Experience:");
 draw_text(room_width/2, room_height*0.1-2, string(round(global.experience)) + "/" + string(round(global.xp_needed)));
 draw_text(1296, 24, string(global.level));
-draw_text(400, 275, "Skillpoints: " + string(global.skillpoints));
-draw_set_font(f_basic);
-//draw_text(150,700, "DEBUG: val1" + string(val1) + "#val1_prev" + string(val1_prev));
+draw_text(1048, 704,  string(global.lives));
+
+if (instance_exists(shop_gui)){
+    draw_text(400, 275, "Skillpoints: " + string(global.skillpoints));
+}
+
+if (draw_lives_help){
+    draw_sprite(spr_lives_help, 0, 1048, 530);
+    draw_text(1048, 530, "Indicates the number#of enemy ships#that can pass#in a wave.#If it gets to zero#you fail the wave.");
+}
 </string>
           </argument>
         </arguments>

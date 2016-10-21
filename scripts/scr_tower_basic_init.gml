@@ -9,7 +9,7 @@ price = 30;
 
 // level bonuses
 level = 1;
-shoot_speed = 1;
+shoot_speed = 1+global.speed_bonus/100;
 timer = 30;
 damage = 10;
 can_shoot = 0;

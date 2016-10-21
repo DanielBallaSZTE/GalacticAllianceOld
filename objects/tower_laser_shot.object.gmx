@@ -60,9 +60,9 @@ target = tower_id.target;
     visible = 1;
     //damage
     if (target.has_armor = true){
-        target.hp -= tower_id.damage/5;   
+        target.hp -= tower_id.damage/5+(tower_id.damage/5*global.damage_bonus/100);   
     }else{
-        target.hp -= tower_id.damage/10;
+        target.hp -= tower_id.damage/10+(tower_id.damage/10*global.damage_bonus/100);
     }
         if (target.hp&lt;=0){
             instance_destroy();

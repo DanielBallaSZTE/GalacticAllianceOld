@@ -56,6 +56,7 @@ image_index = 0;
         wave_generator.wave_cleared = false;
         wave_generator.not_spawning = false;
         wave_generator.timer = 0;
+        global.lives = 3;
         with(shop_gui){
             instance_destroy();
         }
