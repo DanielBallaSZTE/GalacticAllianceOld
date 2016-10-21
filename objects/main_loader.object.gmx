@@ -45,6 +45,8 @@ val1 = global.xp_needed;
 
 global.damage_bonus_level = 0;
 global.speed_bonus_level = 0;
+global.damage_bonus = global.damage_bonus_level*0.5;
+global.speed_bonus = global.speed_bonus_level*0.5;
 
 }else {
 //main_loader
@@ -207,7 +209,18 @@ if (point_distance(1050, 714, mouse_x, mouse_y)&lt;=24){
     
 //waves
     file_text_write_real(write_save, wave_generator.wave_number);
+
+//multipliers
+    file_text_write_real(write_save, global.money_multiplier);
+    file_text_write_real(write_save, global.money_multiplier_level);
+    file_text_write_real(write_save, global.xp_multiplier);      
+    file_text_write_real(write_save, global.xp_multiplier_level); 
     
+//skillpoints
+
+    file_text_write_real(write_save, global.damage_bonus_level);
+    file_text_write_real(write_save, global.speed_bonus_level);
+     
 //towers
     //basic
         var j;
@@ -241,17 +254,7 @@ if (point_distance(1050, 714, mouse_x, mouse_y)&lt;=24){
             file_text_write_real(write_save, tower_save_laser[k].y);
             file_text_write_real(write_save, tower_save_laser[k].level);
         }
-//multipliers
-    file_text_write_real(write_save, global.money_multiplier);
-    file_text_write_real(write_save, global.money_multiplier_level);
-    file_text_write_real(write_save, global.xp_multiplier);      
-    file_text_write_real(write_save, global.xp_multiplier_level); 
-    
-//skillpoints
 
-    file_text_write_real(write_save, global.damage_bonus_level);
-    file_text_write_real(write_save, global.speed_bonus_level);
-     
 //scores
     
     file_text_write_real(write_save, global.fails);
