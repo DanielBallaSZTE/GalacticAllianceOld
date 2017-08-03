@@ -53,9 +53,9 @@
   <instances>
     <instance objName="main_loader" x="88" y="168" name="inst_0ECD7494" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="wave_generator" x="100" y="96" name="inst_7B6E1E84" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="tower_basic_add_gui" x="488" y="708" name="inst_78275764" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="tower_basic_add_gui" x="492" y="716" name="inst_78275764" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="tower_slower_add_gui" x="564" y="708" name="inst_72B8B6E9" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="tower_laser_add_gui" x="640" y="704" name="inst_082E42A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="tower_laser_add_gui" x="644" y="720" name="inst_082E42A1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_settings" x="1280" y="84" name="inst_8B963FAC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>

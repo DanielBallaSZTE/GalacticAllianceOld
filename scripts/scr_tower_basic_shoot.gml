@@ -115,6 +115,7 @@ if (can_shoot){
     timer += 1*shoot_speed;
     if (timer > 30){
         instance_create(x, y, tower_basic_shot);
+        audio_play_sound(snd_tower_basic_shoot, 1, 0);
             timer = 0;
     }
 }

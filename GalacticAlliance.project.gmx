@@ -5,7 +5,9 @@
   </Configs>
   <datafiles number="10" name="datafiles"/>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sound>sound\snd_tower_basic_shoot</sound>
+  </sounds>
   <sprites name="sprites">
     <sprite>sprites\spr_waveclear</sprite>
     <sprite>sprites\spr_tower_recycle</sprite>
@@ -24,9 +26,10 @@
       <sprite>sprites\spr_enemy_two</sprite>
       <sprite>sprites\spr_enemy_one</sprite>
       <sprite>sprites\spr_enemy_three</sprite>
-      <sprite>sprites\spr_explosion</sprite>
+      <sprite>sprites\spr_explosion_old</sprite>
       <sprite>sprites\spr_boss_explosion</sprite>
       <sprite>sprites\spr_enemy_boss1</sprite>
+      <sprite>sprites\spr_explosion_new</sprite>
     </sprites>
     <sprites name="tower_slower">
       <sprite>sprites\spr_tower_slower</sprite>
@@ -57,14 +60,18 @@
       <sprite>sprites\spr_settings_menu</sprite>
       <sprite>sprites\spr_lives_help</sprite>
     </sprites>
+    <sprite>sprites\spr_dmg_plus</sprite>
     <sprite>sprites\xp_bar</sprite>
-    <sprite>sprites\xp_mult_TEST</sprite>
+    <sprite>sprites\spr_test</sprite>
+    <sprite>sprites\spr_xp_mult</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\main_bg</background>
     <background>background\menu_bg</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\map1</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="towers">
       <scripts name="tower_basic">
@@ -146,6 +153,7 @@
       <object>objects\obj_next_wave</object>
       <object>objects\obj_money_multiplier</object>
       <object>objects\obj_xp_multiplier</object>
+      <object>objects\obj_dmg_bonus</object>
     </objects>
     <objects name="control">
       <object>objects\main_loader</object>

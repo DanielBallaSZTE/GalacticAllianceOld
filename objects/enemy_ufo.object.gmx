@@ -43,6 +43,8 @@ slow_timer = 0;
 slowed = false;
 
 has_armor = false;
+
+path_start(map1, 1*movement_multiplier, path_action_stop, 1)
 </string>
           </argument>
         </arguments>
@@ -65,7 +67,11 @@ has_armor = false;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>x -= 1*movement_multiplier;
+            <string>//x -= 1*movement_multiplier;
+
+image_angle = direction+180;
+
+path_speed = 1*movement_multiplier;
 
 if (slow_timer&lt;0){
     slow_timer = 0;

@@ -47,7 +47,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string></string>
+            <string>global.damage_bonus = 0.5*global.damage_bonus_level;
+
+clamp(global.damage_bonus_level, 0, 20);
+</string>
           </argument>
         </arguments>
       </action>

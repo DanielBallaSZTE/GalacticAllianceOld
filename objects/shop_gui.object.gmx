@@ -33,6 +33,9 @@ if (!instance_exists(obj_money_multiplier)){
 if (!instance_exists(obj_xp_multiplier)){
     instance_create(170, 470, obj_xp_multiplier);
 }
+if (!instance_exists(obj_dmg_bonus)){
+    instance_create(170, 370, obj_dmg_bonus);
+}
 </string>
           </argument>
         </arguments>
@@ -80,7 +83,7 @@ if (!instance_exists(obj_xp_multiplier)){
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_sprite(shop_bg, 0, 84, 92);
+            <string>//draw_sprite(shop_bg, 0, 84, 92);
 </string>
           </argument>
         </arguments>

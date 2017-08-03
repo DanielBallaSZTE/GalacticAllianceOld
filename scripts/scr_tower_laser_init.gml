@@ -14,3 +14,4 @@ can_rotate = false;
 
 z = 0;
 
+rotator = 0;

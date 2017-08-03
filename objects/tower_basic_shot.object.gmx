@@ -26,8 +26,10 @@
           <argument>
             <kind>1</kind>
             <string>tower_id = instance_place(x,y, tower_basic);
-
 target = tower_id.target;
+if (instance_exists(target)){
+    image_angle = point_direction(x,y, target.x, target.y)-90;
+}
 </string>
           </argument>
         </arguments>
@@ -53,7 +55,7 @@ target = tower_id.target;
             <string>if (!instance_exists(target)){
     instance_destroy();
 }else {
-    move_towards_point(target.x, target.y, 20);
+    move_towards_point(target.x, target.y, 25);
 }
 </string>
           </argument>
@@ -76,11 +78,12 @@ target = tower_id.target;
           <argument>
             <kind>1</kind>
             <string>if (instance_exists(target)){
+    image_angle = point_direction(x,y, target.x, target.y)-90;
     if (distance_to_point(target.x, target.y) &lt; 1){
         if (target.has_armor){
-            target.hp -= 5+(5*global.damage_bonus/100);
+            target.hp -= 4+(5*global.damage_bonus/100);
         }else{
-            target.hp -= 10+(10*global.damage_bonus/100);
+            target.hp -= 8+(10*global.damage_bonus/100);
         }
         global.money += 1*global.money_multiplier;
         instance_destroy();

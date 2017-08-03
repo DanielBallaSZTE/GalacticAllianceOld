@@ -293,6 +293,8 @@ draw_text(room_width/2, room_height*0.1-2, string(round(global.experience)) + "/
 draw_text(1296, 24, string(global.level));
 draw_text(1048, 704,  string(global.lives));
 
+draw_text(50, 200, "FPS: " + string(fps));
+
 if (instance_exists(shop_gui)){
     draw_text(400, 275, "Skillpoints: " + string(global.skillpoints));
 }

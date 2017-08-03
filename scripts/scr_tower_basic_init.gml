@@ -16,3 +16,5 @@ can_shoot = 0;
 can_rotate = false;
 
 found_good = false;
+
+rotator = 0;

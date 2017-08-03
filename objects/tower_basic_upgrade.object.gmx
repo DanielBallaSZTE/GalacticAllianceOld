@@ -125,7 +125,7 @@ if (point_distance(x, y, mouse_x, mouse_y)&lt;17){
                     global.money -= 50;
                 }
                 inst_tower.level+=1; //increase level
-                
+                scr_tower_basic_levels(inst_tower);
             }
         }
     }

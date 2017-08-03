@@ -76,7 +76,7 @@ if (place_meeting(x,y, tower_laser) ||place_meeting(x,y, tower_basic) || (place_
     }
 } else{
     if (mouse_check_button_released(mb_left)){
-        instance_create(x,y, tower_basic);
+        instance_create(x,y-4, tower_basic);
         global.placing_tower = false;
         global.money -= 30;
         instance_destroy();
